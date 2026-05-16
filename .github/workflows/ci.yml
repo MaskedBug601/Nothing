@@ -1,0 +1,12 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pip install fastapi pydantic
+      - name: Run tests
+        run: curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "title": "Task 1", "description": "This is task 1"}' http://localhost:8000/tasks && curl -X GET http://localhost:8000/tasks && curl -X PUT -H "Content-Type: application/json" -d '{"id": 1, "title": "Task 1 updated", "description": "This is task 1 updated"}' http://localhost:8000/tasks/1 && curl -X DELETE http://localhost:8000/tasks/1

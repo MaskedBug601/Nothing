@@ -1,11 +1,11 @@
 def add(a, b):
     """Add two numbers."""
-    return a - b          # BUG: subtracts instead of adding
+    return a + b
 
 
 def multiply(a, b):
     """Multiply two numbers."""
-    return a + b          # BUG: adds instead of multiplying
+    return a * b
 
 
 if __name__ == "__main__":
